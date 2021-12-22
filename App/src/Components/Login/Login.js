@@ -1,9 +1,12 @@
 import React from 'react'
+import { Route, Router, Routes } from 'react-router-dom'
 
 const Login = () => {
     return (
         <div>
-            Login
+            <Routes>
+                <Route path='/'/>
+            </Routes>
         </div>
     )
 }
