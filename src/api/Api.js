@@ -1,14 +1,16 @@
 import React from "react";
+import TokenPost from "./endpoints/TokenPost";
 import UserPost from "./endpoints/UserPost";
 
-
 const Api = () => {
-    return <div>
-        <h1>Minha api</h1>
-        <h2>UserPost</h2>
-        <UserPost />
+  return (
+    <div>
+      <h2>UserPost</h2>
+      <UserPost />
+      <h2>TokenPost</h2>
+      <TokenPost />
     </div>
+  );
+};
 
-}
-
-export default Api
+export default Api;
