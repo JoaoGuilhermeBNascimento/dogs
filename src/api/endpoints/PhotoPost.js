@@ -3,26 +3,25 @@ import React from "react";
 const PhotoPost = () => {
   const [token, setToken] = React.useState("");
   const [nome, setNome] = React.useState("");
-  const [token, setToken] = React.useState("");
-  const [token, setToken] = React.useState("");
-  const [token, setToken] = React.useState("");
-  const [token, setToken] = React.useState("");
-
-  
+  const [peso, setPeso] = React.useState("");
+  const [idade, setIdade] = React.useState("");
+  const [img, setImg] = React.useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch("https://dogsapi.origamid.dev/json/api/user", {
+    const formData = new FormData();
+    formData.append("img", img);
+    formData.append("nome", nome);
+    formData.append("peso", peso);
+    formData.append("idade", idade);
+
+    fetch("https://dogsapi.origamid.dev/json/api/photo", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        Authorization: "Bearer" + token,
       },
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-      }),
+      body: formData,
     })
       .then((response) => {
         console.log(response);
@@ -38,22 +37,29 @@ const PhotoPost = () => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Username"
-        value={username}
-        onChange={({ target }) => setUsername(target.value)}
+        placeholder="Token"
+        value={token}
+        onChange={({ target }) => setToken(target.value)}
       />
       <input
         type="text"
-        placeholder="Password"
-        value={password}
-        onChange={({ target }) => setPassword(target.value)}
+        placeholder="nome"
+        value={nome}
+        onChange={({ target }) => setNome(target.value)}
       />
       <input
         type="text"
-        placeholder="email"
-        value={email}
-        onChange={({ target }) => setEmail(target.value)}
+        placeholder="peso"
+        value={peso}
+        onChange={({ target }) => setPeso(target.value)}
       />
+      <input
+        type="text"
+        placeholder="idade"
+        value={idade}
+        onChange={({ target }) => setIdade(target.value)}
+      />
+      <input type="file" onChange={({ target }) => setImg(target.files[0])} />
 
       <button>Enviar</button>
     </form>
