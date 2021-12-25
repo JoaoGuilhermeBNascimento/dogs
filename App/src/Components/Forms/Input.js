@@ -9,11 +9,11 @@ const Input = ({ label, type, name, value, onChange }) => {
         id={name}
         name={name}
         className={styles.input}
-        value={value}
         type={type}
+        value={value}
         onChange={onChange}
       />
-      <p className={styles.error}>Error</p> 
+      <p className={styles.error}>Error</p>
     </div>
   );
 };

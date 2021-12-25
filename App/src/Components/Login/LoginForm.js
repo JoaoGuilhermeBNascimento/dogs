@@ -5,8 +5,8 @@ import Button from "../Forms/Button";
 import useForm from "../../Hooks/useForm";
 
 const LoginForm = () => {
-  const username = useForm()
-  const password = useForm()
+  const username = useForm();
+  console.log(username);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -31,7 +31,7 @@ const LoginForm = () => {
       <h1>Login</h1>
       <form action="" onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />
-        <Input label="Senha" type="password" value name="password" {...password}/>
+        <Input label="Senha" type="password" value name="password" />
 
         <Button>Entrar</Button>
       </form>
