@@ -1,0 +1,133 @@
+.nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+/**  quando chamamos a no css nos referimos aos link  **/
+.nav a,
+.nav button {
+  background: #eee;
+  border-radius: 0.2rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.nav a:hover,
+.nav a:focus,
+.nav button:hover,
+.nav button:focus {
+  background: white;
+  box-shadow: 0 0 0 3px #fea;
+  border-color: #fb1;
+  outline: none;
+}
+.nav a.active {
+  background: white;
+  box-shadow: 0 0 0 3px #fea;
+  border-color: #fb1;
+}
+
+
+
+.mobileButton {
+  background: #eee;
+  border-radius: 0.2rem;
+  height: 40px;
+  width: 40px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: 0.1s;
+  cursor: pointer;
+}
+/**  criamos um pseudo-element para criar o botão de menu direto no css 
+essa configuração abaixo cria um botão com o fundo cinza e cria um tracinho dentro dele, border-radios para arredendonar 
+criamos um box shadow para criar uma sombra em cima e embaixo para mostrar 3 tracinhos 
+box-shado: 0 siginfica que é 0pixels para um lado e para o outro, 6px = pra baixo(gerando o primeiro tracinho e repetimos a parte do 0 novamente e colocamos -6 px que vai ser pra cima**/
+
+.mobileButton::after {
+  content: "";
+  display: block;
+  width: 1.2rem;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  box-shadow: 0 6px currentColor, 0 -6px currentColor;
+  transition: 0.2s;
+}
+.mobileButton:focus,
+.mobileButton:hover,
+.mobileButtonActive {
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px #fea;
+  border-color: #fb1;
+  color: #fb1;
+}
+/**essa configuração, transforma os traços(sombras) em bolas e aplicamos um transition para poder animar ao clicar **/
+.mobileButtonActive::after {
+  transform: rotate(-90deg);
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 8px currentColor, 0 -8px currentColor;
+}
+/**Essas configurações do mobile, ele joga os itens para o canto e dar uma box-shadow fraca porém é importante o detalhe 
+IMPORTANTE quando o botão estiver inativo o pointer-event fica como none e na parte ativa colocamos como initial para que o cara não consiga clicar nos botão com o menu desativado**/
+.navMobile {
+  display: block;
+  position: absolute;
+  top: 70px;
+  right: 0px;
+  padding: 0 1rem;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 0.2rem;
+  transform: translateX(-10px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/** z-index serve para que no caso esse botão esteja ativo ele vai aparecer acima de tudo **/
+.navMobileActive {
+  transition: 0.3s;
+  transform: initial;
+  pointer-events: initial;
+
+  opacity: 1;
+  z-index: 100;
+}
+
+/** Aqui ele está falando com os botões e com os link(a) border-bottom é o que faz a linha clara dividindo cada item  
+LEMBRANDO, HOVER é para quando passarmos o mouse ele ficar reativo o * serve para selecionar tudo do svg **/
+.navMobile a,
+.navMobile button {
+  display: flex;
+  align-items: center;
+  background: none;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+/**LEMBRANDO, HOVER é para quando passarmos o mouse ele ficar reativo o * serve para selecionar tudo do svg, com essa config, quando eu passo o mouse por cima os svg dentro dos botões ficam amarelos **/
+.navMobile a:hover svg > *,
+.navMobile button:hover svg > * {
+  fill: #fb1;
+}
+
+.navMobile button {
+  border-bottom: none;
+}
+
+.navMobile svg {
+  margin-right: 0.5rem;
+}

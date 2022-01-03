@@ -30,7 +30,7 @@ const LoginForm = () => {
     <section>
       <h1>Login</h1>
       <form action="" onSubmit={handleSubmit}>
-        <Input label="Usuário" type="text" name="username" {...username} />
+        <Input label="Usuário" type="text" name="username" {...username}/>
         <Input label="Senha" type="password" value name="password" />
 
         <Button>Entrar</Button>

@@ -1,0 +1,25 @@
+
+/** grid-template colums, como 1fr 1fr para ficar o formulário de 1 um lado e o preview do outro**/
+.photoPost {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.file {
+  margin-bottom: 1rem;
+}
+
+.preview {
+  border-radius: 1rem;
+  background-size: cover;
+  background-position: center center;
+}
+
+.preview::after {
+    content: '';
+    display: block;
+    height: 0px;
+    padding-bottom: 100%;
+}
