@@ -103,3 +103,16 @@ export function COMMENT_POST(id, body) {
     },
   };
 }
+// com esse endpoint com o metódo delete, eu também faço uma verificação para ver se a pessoa tem autorização
+export function PHOTO_DELETE(id) {
+  return {
+    url: `${API_URL}/api/photo/${id}`,
+    options: {
+      method: "DELETE",
+      
+      headers: {
+        Authorization: "Bearer " + window.localStorage.getItem("token"),
+      },
+    },
+  };
+}
