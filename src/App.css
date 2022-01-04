@@ -57,11 +57,10 @@ a {
   margin: 1rem 0;
   position: relative;
   z-index: 1;
-
 }
 
 .title::after {
-  content: '';
+  content: "";
   display: block;
   width: 1.5rem;
   height: 1.5rem;
@@ -87,5 +86,5 @@ a {
 }
 
 .mainContainer {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
