@@ -7,11 +7,11 @@ import Loading from "../Helper/Loading";
 import PhotoContent from "./PhotoContent";
 
 const Photo = () => {
-    // use params é um hook do react router dom
+  // use params é um hook do react router dom
   const { id } = useParams();
   //fizemos um fetch puxando as propriedades abaixo
   const { data, loading, error, request } = useFetch();
-    // fizemos um request de um endpoint de photo_get(id) e vamos puxar a foto e apresentar os comentários.
+  // fizemos um request de um endpoint de photo_get(id) e vamos puxar a foto e apresentar os comentários.
   React.useEffect(() => {
     const { url, options } = PHOTO_GET(id);
 
@@ -22,7 +22,9 @@ const Photo = () => {
   if (loading) return <Loading />;
   if (data)
     return (
-      <section className='container mainContainer'>
+      //passou a propriedade usada no css pra puxar as configurações definidas anteriormente
+      //cfaltou
+      <section className="container mainContainer">
         <PhotoContent single={true} data={data} />
       </section>
     );
