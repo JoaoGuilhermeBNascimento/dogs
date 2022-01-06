@@ -19,7 +19,10 @@ const PhotoComments = (props) => {
   //colocamos um ref no ul pois é nele que está nossa sessão de comentários
   return (
     <>
-      <ul ref={commentsSection} className={styles.comments}>
+      <ul
+        ref={commentsSection}
+        className={`${styles.comments} ${props.single ? styles.single : ""}`}
+      >
         {comments.map((comment) => (
           <li key={comment.comment_ID}>
             <b>{comment.comment_author}: </b>
@@ -27,7 +30,13 @@ const PhotoComments = (props) => {
           </li>
         ))}
       </ul>
-      {login && <PhotoCommentsForm id={props.id} setComments={setComments} />}
+      {login && (
+        <PhotoCommentsForm
+          single={props. single}
+          id={props.id}
+          setComments={setComments}
+        />
+      )}
     </>
     // passamos para nosso formulário a função de atualização de comentários que é o setComments, passamos para o formulário e então vamos fazer uma validação com if no handleSubmit
   );

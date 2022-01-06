@@ -78,6 +78,7 @@ export function PHOTOS_GET({ page, total, user }) {
     },
   };
 }
+
 //nesse caso, vamos puxar a foto por id para apresentar ela em destaque com os comentários
 export function PHOTO_GET(id) {
   return {
@@ -109,7 +110,7 @@ export function PHOTO_DELETE(id) {
     url: `${API_URL}/api/photo/${id}`,
     options: {
       method: "DELETE",
-      
+
       headers: {
         Authorization: "Bearer " + window.localStorage.getItem("token"),
       },
