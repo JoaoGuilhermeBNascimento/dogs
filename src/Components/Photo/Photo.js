@@ -23,7 +23,7 @@ const Photo = () => {
   if (data)
     return (
       //passou a propriedade usada no css pra puxar as configurações definidas anteriormente
-      //cfaltou
+      //faltou
       <section className="container mainContainer">
         <PhotoContent single={true} data={data} />
       </section>

@@ -9,9 +9,12 @@ import { UserStorage } from "./UserContext";
 import User from "./Components/User/User";
 import ProtectedRoute from "./Components/Helper/ProtectedRoute";
 import Photo from "./Components/Photo/Photo";
+import UserProfile from "./Components/User/UserProfile";
 // Quando temos uma rota que tem sub-rotas, temos que colocar /* explicando que dentro do /login terão outras rotas
 //vamos envolver todo nosso app no UserStorage, então a partir do browserRouter envolvemos ele
 // passamos informação para baixo de userstorage definindo um valor no usercontext.provider
+//  passamos a rota da foto id e do perfil do usuário
+
 function App() {
   return (
     <div>
@@ -30,6 +33,7 @@ function App() {
               }
             />
             <Route path="foto/:id" element={<Photo />} />
+            <Route path="perfil/:user" element={<UserProfile />} />
           </Routes>
           <Footer />
         </UserStorage>
