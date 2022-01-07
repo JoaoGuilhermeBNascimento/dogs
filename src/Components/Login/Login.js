@@ -6,6 +6,7 @@ import LoginPasswordLost from "./LoginPasswordLost";
 import LoginPasswordReset from "./LoginPasswordReset";
 import { UserContext } from "../../UserContext";
 import styles from "./Login.module.css";
+import NotFound from "../NotFound";
 
 /* Nesta parte definimos todas as rotas que queremos e não queremos que a página recarregue quando clicar em um dos elementos do login, como criar login, recuperar senha ou perdeu a senha
  o path inicial é sempre a barra, pois ela soma os outros elementos
@@ -25,7 +26,8 @@ const Login = () => {
           <Route path="criar" element={<LoginCreate />} />
           <Route path="perdeu" element={<LoginPasswordLost />} />
           <Route path="resetar" element={<LoginPasswordReset />} />
-        </Routes> 
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </section>
   );

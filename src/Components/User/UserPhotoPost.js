@@ -7,6 +7,7 @@ import useForm from "../../Hooks/useForm";
 import useFetch from "../../Hooks/useFetch";
 import { PHOTO_POST } from "../../api";
 import Error from "../Helper/Error";
+import Head from "../Helper/Head";
 //utilizamos o nosso custom hook useForm, pois ele procede com validação dos campos para não passar nada em branco ou fora do regex, passamos o parametro de number e definimos no regex, também é possível definir
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -40,7 +41,7 @@ const UserPhotoPost = () => {
   }
   // o handleimgchange recebe um evento e desestruturamos o target que é o que precisamos, foi passado um objeto no const pois vamos precisar de 2 valores
   function handleImgChange({ target }) {
-      //preview, é para fornecer a foto antes de ser postada, usamos uma função de JS para transforma ele para URL que é o createobjectURL
+    //preview, é para fornecer a foto antes de ser postada, usamos uma função de JS para transforma ele para URL que é o createobjectURL
     setImg({
       preview: URL.createObjectURL(target.files[0]),
       raw: target.files[0],
@@ -48,10 +49,11 @@ const UserPhotoPost = () => {
   }
   return (
     //Para área de postagem de fotos criamos um form e dentro dele inseriamos os inputs e aplicamos o onSubmit para podermos enviar o formulário.
-    // Sempre passar os nome desestruturados, para controlar os input com o item reativo criado e por fim inserindo as datas criadas 
+    // Sempre passar os nome desestruturados, para controlar os input com o item reativo criado e por fim inserindo as datas criadas
     //Lidamos com o loading, utilizamos um ternário para verificar, caso o botão tenha sido ativo, ele desabilita e muda a mensagem, caso contrário ele fica habilitado como Enviar
     //tratamos o erro também, para informar quaisquer erro que vinher a acontecer.
     <section className={`${styles.photoPost} animeLeft`}>
+      <Head title="Poste sua Foto" />
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="nome" {...nome} />
         <Input label="Peso" type="number" name="peso" {...peso} />
@@ -68,10 +70,10 @@ const UserPhotoPost = () => {
         ) : (
           <Button>Enviar</Button>
         )}
-        
+
         <Error error={error} />
       </form>
-      
+
       <div>
         {img.preview && (
           <div

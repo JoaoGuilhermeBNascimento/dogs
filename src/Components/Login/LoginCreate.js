@@ -6,6 +6,7 @@ import { USER_POST } from "../../api";
 import { UserContext } from "../../UserContext";
 import useFetch from "../../Hooks/useFetch";
 import Error from "../Helper/Error";
+import Head from "../Helper/Head";
 
 const LoginCreate = () => {
   const username = useForm();
@@ -33,6 +34,8 @@ const LoginCreate = () => {
   // No form criamos o onSubmit e o submetemos a handleSubmit, depois inserimos o Input já criado anteriormente e definimos os 3 itens e o desestruturamos cada uma delas, pois estamos usando um hook useForm, é importante definir o type do password para não aparecer a senha.
   return (
     <section className="animeLeft">
+      <Head title="Criar Conta" />
+
       <h1 className="title">Cadastra-se</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />

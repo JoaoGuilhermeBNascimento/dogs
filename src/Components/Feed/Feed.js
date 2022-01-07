@@ -1,6 +1,8 @@
 import React from "react";
 import FeedModal from "./FeedModal";
 import FeedPhotos from "./FeedPhotos";
+//fizemos a importação do prop types pq o usuário pode ter 2 tipo de tipo
+import PropTypes from "prop-types";
 
 // passamos o usuário no feed é no  FeedPhotos porque é onde eu faço o fetch das fotos em geral
 const Feed = ({ user }) => {
@@ -75,5 +77,15 @@ const Feed = ({ user }) => {
     </div>
   );
 };
-
+//Aqui criamos um padrão( um default) para previnir o erro
+Feed.defautlProps = {
+  user: 0,
+};
+// aqui definimos que o user pode ser um número ou uma string
+Feed.propTypes = {
+  user: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired,
+  ]),
+};
 export default Feed;

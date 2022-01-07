@@ -1,9 +1,10 @@
 import React from "react";
+import Head from "../Helper/Head";
 
 const UserStats = () => {
   return (
     <div>
-      <h1>Estatísticas</h1>
+      <Head title="Estatísticas" />
     </div>
   );
 };
