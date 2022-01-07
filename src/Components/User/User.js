@@ -16,12 +16,13 @@ const User = () => {
   // quando o usuário estiver dentro de postar vai ser carregado a parte de postar foto do usuário, o UserPhotoPost e para ver as estatisticas ele vai ser carregado o UserStats
   return (
     <section className="container">
-      <Head title='Minha Conta'/>
+      <Head title="Minha Conta" />
       <UserHeader />
       <Routes>
         <Route path="/" element={<Feed user={data.id} />} />
         <Route path="postar" element={<UserPhotoPost />} />
-        <Route path="estastisticas" element={<UserStats />} />
+        <Route path="estatisticas" element={<UserStats />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </section>
