@@ -143,7 +143,7 @@ export function PASSWORD_RESET(body) {
     },
   };
 }
-
+// stats_get puxa as informações do data e entrega como status(acesso, quantidade de comments etc), utilizamos authorization porque é preciso que o usuário esteja logado para poder ver as estatística 
 export function STATS_GET() {
   return {
     url: API_URL + "/api/stats",
